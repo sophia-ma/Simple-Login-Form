@@ -1,12 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import './index.scss';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { CSSReset, ThemeProvider } from '@chakra-ui/core';
 
 ReactDOM.render(
     <React.StrictMode>
-        <App />
+        <ThemeProvider>
+            <CSSReset />
+            <App />
+        </ThemeProvider>
     </React.StrictMode>,
     document.getElementById('root')
 );
