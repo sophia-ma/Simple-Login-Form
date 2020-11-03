@@ -86,6 +86,7 @@ const LoginForm = () => {
                         </Field>
 
                         <Button
+                            id="submit"
                             mt={6}
                             variantColor="green"
                             isLoading={isSubmitting}

@@ -5,6 +5,7 @@ import LoginForm from '../LoginForm';
 
 it('renders the form', () => {
     const div = document.createElement('div');
+
     render(<LoginForm />, div);
 });
 
@@ -35,9 +36,9 @@ it('should show validation on blur', async () => {
 it('should validate on click on submit', async () => {
     const { container, getByTestId } = render(<LoginForm />);
 
-    const button = container.querySelector('button[type="submit"]');
+    const submit = container.querySelector('button[type="submit"]');
 
-    fireEvent.click(button);
+    fireEvent.click(submit);
 
     await waitFor(() => {
         expect(getByTestId('usernameError')).not.toBe(null);
@@ -60,8 +61,7 @@ it('submits correct values', async () => {
     const username = container.querySelector('input[name="username"]');
     const password = container.querySelector('input[name="password"]');
     const formResults = container.querySelector('input[id="results"]');
-    const button = container.querySelector('button[type="submit"]');
-
+    const submit = container.querySelector('button[type="submit"]');
 
     await waitFor(() => {
         fireEvent.change(username, { target: { value: 'mockName' } });
@@ -72,7 +72,7 @@ it('submits correct values', async () => {
     });
 
     await waitFor(() => {
-        fireEvent.click(button);
+        fireEvent.click(submit);
 
         expect(formResults.value).toBe(
             '{"username":"mockName","password":"mockPassword"}'
